@@ -186,7 +186,7 @@ class Index extends Controller
             $count = Db::name('food')->where($where)->count();
             // 随机获取一条
             $rand = mt_rand(1, $count);
-            $food = Db::name('food')->where($where)->field('id, food_type, food_name')->page($rand)->limit(1)->select();
+            $food = Db::name('food')->where($where)->field('id, food_type, food_name, food_url')->page($rand)->limit(1)->select();
             // 返回数据
             $this->return['code'] = 1;
             $this->return['msg'] = '更换成功';
