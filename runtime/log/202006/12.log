@@ -18014,3 +18014,425 @@
 [ sql ] [ SQL ] SELECT `id`,`food_name`,`food_img`,`food_url` FROM `t_food` WHERE  `is_show` = 1  AND `id` NOT IN ('') LIMIT 8,1 [ RunTime:0.001000s ]
 [ sql ] [ SQL ] SELECT `id`,`food_name`,`food_img`,`food_url` FROM `t_food` WHERE  `is_show` = 1  AND `id` NOT IN (9) LIMIT 15,1 [ RunTime:0.002000s ]
 [ sql ] [ SQL ] SELECT `id`,`food_name`,`food_img`,`food_url` FROM `t_food` WHERE  `is_show` = 1  AND `id` NOT IN (9,17) LIMIT 9,1 [ RunTime:0.002000s ]
+---------------------------------------------------------------
+[ 2020-06-12T11:08:28+08:00 ] 127.0.0.1 GET food.cuizy.com/
+[运行时间：0.072000s] [吞吐率：13.89req/s] [内存消耗：2,366.26kb] [文件加载：43]
+[ info ] [ LANG ] F:\my-file\food\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'pgv_pvi=7461056512; pgv_si=s3462497280',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'food.cuizy.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ F:\my-file\food\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] F:\my-file\food\public/../application/index\view\index\index.html [ array (
+  0 => 'rec_list',
+  1 => 'food_type',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.013000s ] mysql:host=127.0.0.1;port=3306;dbname=chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_food` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `t_food` WHERE  `is_show` = 1 LIMIT 1 [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`food_name`,`food_img`,`food_url` FROM `t_food` WHERE  `is_show` = 1  AND `id` NOT IN ('') LIMIT 2,1 [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `id`,`food_name`,`food_img`,`food_url` FROM `t_food` WHERE  `is_show` = 1  AND `id` NOT IN (3) LIMIT 0,1 [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT `id`,`food_name`,`food_img`,`food_url` FROM `t_food` WHERE  `is_show` = 1  AND `id` NOT IN (3,1) LIMIT 8,1 [ RunTime:0.002000s ]
+---------------------------------------------------------------
+[ 2020-06-12T11:09:30+08:00 ] 127.0.0.1 GET food.cuizy.com/menu
+[运行时间：0.051000s] [吞吐率：19.61req/s] [内存消耗：2,509.13kb] [文件加载：46]
+[ info ] [ LANG ] F:\my-file\food\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'menu',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'pgv_pvi=7461056512; pgv_si=s3462497280',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://food.cuizy.com/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => 'food.cuizy.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->menu[ F:\my-file\food\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] F:\my-file\food\public/../application/index\view\index\menu.html [ array (
+  0 => 'search',
+  1 => 'food_list',
+  2 => 'food_type',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.014000s ] mysql:host=127.0.0.1;port=3306;dbname=chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_food` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `t_food` WHERE  `is_show` = 1 LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `id`,`food_name`,`food_img`,`food_url` FROM `t_food` WHERE  `is_show` = 1 ORDER BY `id` DESC LIMIT 0,12 [ RunTime:0.002000s ]
+---------------------------------------------------------------
+[ 2020-06-12T11:09:32+08:00 ] 127.0.0.1 GET food.cuizy.com/add
+[运行时间：0.022000s] [吞吐率：45.45req/s] [内存消耗：1,473.51kb] [文件加载：35]
+[ info ] [ LANG ] F:\my-file\food\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'add',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'pgv_pvi=7461056512; pgv_si=s3462497280',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://food.cuizy.com/menu',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'food.cuizy.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->add[ F:\my-file\food\application\index\controller\Index.php ]
+[ info ] [ VIEW ] F:\my-file\food\public/../application/index\view\index\add.html [ array (
+  0 => 'food_type',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-06-12T11:09:34+08:00 ] 127.0.0.1 GET food.cuizy.com/
+[运行时间：0.049000s] [吞吐率：20.41req/s] [内存消耗：2,221.68kb] [文件加载：41]
+[ info ] [ LANG ] F:\my-file\food\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'pgv_pvi=7461056512; pgv_si=s3462497280',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://food.cuizy.com/add',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'food.cuizy.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ F:\my-file\food\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] F:\my-file\food\public/../application/index\view\index\index.html [ array (
+  0 => 'rec_list',
+  1 => 'food_type',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012000s ] mysql:host=127.0.0.1;port=3306;dbname=chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_food` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `t_food` WHERE  `is_show` = 1 LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `id`,`food_name`,`food_img`,`food_url` FROM `t_food` WHERE  `is_show` = 1  AND `id` NOT IN ('') LIMIT 7,1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `id`,`food_name`,`food_img`,`food_url` FROM `t_food` WHERE  `is_show` = 1  AND `id` NOT IN (8) LIMIT 14,1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`food_name`,`food_img`,`food_url` FROM `t_food` WHERE  `is_show` = 1  AND `id` NOT IN (8,16) LIMIT 10,1 [ RunTime:0.002000s ]
+---------------------------------------------------------------
+[ 2020-06-12T11:09:34+08:00 ] 127.0.0.1 GET food.cuizy.com/
+[运行时间：0.049000s] [吞吐率：20.41req/s] [内存消耗：2,221.66kb] [文件加载：41]
+[ info ] [ LANG ] F:\my-file\food\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'pgv_pvi=7461056512; pgv_si=s3462497280',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://food.cuizy.com/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'food.cuizy.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ F:\my-file\food\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] F:\my-file\food\public/../application/index\view\index\index.html [ array (
+  0 => 'rec_list',
+  1 => 'food_type',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.013000s ] mysql:host=127.0.0.1;port=3306;dbname=chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_food` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `t_food` WHERE  `is_show` = 1 LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `id`,`food_name`,`food_img`,`food_url` FROM `t_food` WHERE  `is_show` = 1  AND `id` NOT IN ('') LIMIT 16,1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `id`,`food_name`,`food_img`,`food_url` FROM `t_food` WHERE  `is_show` = 1  AND `id` NOT IN (17) LIMIT 4,1 [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `id`,`food_name`,`food_img`,`food_url` FROM `t_food` WHERE  `is_show` = 1  AND `id` NOT IN (17,5) LIMIT 4,1 [ RunTime:0.002000s ]
+---------------------------------------------------------------
+[ 2020-06-12T11:09:35+08:00 ] 127.0.0.1 GET food.cuizy.com/menu
+[运行时间：0.048000s] [吞吐率：20.83req/s] [内存消耗：2,371.48kb] [文件加载：44]
+[ info ] [ LANG ] F:\my-file\food\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'menu',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'pgv_pvi=7461056512; pgv_si=s3462497280',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://food.cuizy.com/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'food.cuizy.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->menu[ F:\my-file\food\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] F:\my-file\food\public/../application/index\view\index\menu.html [ array (
+  0 => 'search',
+  1 => 'food_list',
+  2 => 'food_type',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012000s ] mysql:host=127.0.0.1;port=3306;dbname=chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_food` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `t_food` WHERE  `is_show` = 1 LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `id`,`food_name`,`food_img`,`food_url` FROM `t_food` WHERE  `is_show` = 1 ORDER BY `id` DESC LIMIT 0,12 [ RunTime:0.003000s ]
+---------------------------------------------------------------
+[ 2020-06-12T11:09:41+08:00 ] 127.0.0.1 GET food.cuizy.com/
+[运行时间：0.045000s] [吞吐率：22.22req/s] [内存消耗：2,221.68kb] [文件加载：41]
+[ info ] [ LANG ] F:\my-file\food\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'pgv_pvi=7461056512; pgv_si=s3462497280',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://food.cuizy.com/menu',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'food.cuizy.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ F:\my-file\food\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] F:\my-file\food\public/../application/index\view\index\index.html [ array (
+  0 => 'rec_list',
+  1 => 'food_type',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003000s ] mysql:host=127.0.0.1;port=3306;dbname=chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_food` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `t_food` WHERE  `is_show` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`food_name`,`food_img`,`food_url` FROM `t_food` WHERE  `is_show` = 1  AND `id` NOT IN ('') LIMIT 5,1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `id`,`food_name`,`food_img`,`food_url` FROM `t_food` WHERE  `is_show` = 1  AND `id` NOT IN (6) LIMIT 13,1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `id`,`food_name`,`food_img`,`food_url` FROM `t_food` WHERE  `is_show` = 1  AND `id` NOT IN (6,15) LIMIT 9,1 [ RunTime:0.003000s ]
+---------------------------------------------------------------
+[ 2020-06-12T11:10:39+08:00 ] 127.0.0.1 POST food.cuizy.com/start
+[运行时间：0.043000s] [吞吐率：23.26req/s] [内存消耗：2,149.24kb] [文件加载：37]
+[ info ] [ LANG ] F:\my-file\food\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'start',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'pgv_pvi=7461056512; pgv_si=s3462497280',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://food.cuizy.com/',
+  'origin' => 'http://food.cuizy.com',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '90',
+  'connection' => 'keep-alive',
+  'host' => 'food.cuizy.com',
+)
+[ info ] [ PARAM ] array (
+  'type_arr' => 
+  array (
+    0 => '1',
+    1 => '2',
+    2 => '3',
+    3 => '4',
+    4 => '5',
+  ),
+  'num' => '3',
+)
+[ info ] [ RUN ] app\index\controller\Index->start[ F:\my-file\food\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003000s ] mysql:host=127.0.0.1;port=3306;dbname=chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_food` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `food_name` FROM `t_food` WHERE  `food_type` IN (1,2,3,4,5)  AND `is_show` = 1 [ RunTime:0.002000s ]
+---------------------------------------------------------------
+[ 2020-06-12T11:10:43+08:00 ] 127.0.0.1 POST food.cuizy.com/start
+[运行时间：0.042000s] [吞吐率：23.81req/s] [内存消耗：2,149.24kb] [文件加载：37]
+[ info ] [ LANG ] F:\my-file\food\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'start',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'pgv_pvi=7461056512; pgv_si=s3462497280',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://food.cuizy.com/',
+  'origin' => 'http://food.cuizy.com',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '90',
+  'connection' => 'keep-alive',
+  'host' => 'food.cuizy.com',
+)
+[ info ] [ PARAM ] array (
+  'type_arr' => 
+  array (
+    0 => '1',
+    1 => '2',
+    2 => '3',
+    3 => '4',
+    4 => '5',
+  ),
+  'num' => '3',
+)
+[ info ] [ RUN ] app\index\controller\Index->start[ F:\my-file\food\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003000s ] mysql:host=127.0.0.1;port=3306;dbname=chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_food` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `food_name` FROM `t_food` WHERE  `food_type` IN (1,2,3,4,5)  AND `is_show` = 1 [ RunTime:0.004000s ]
+---------------------------------------------------------------
+[ 2020-06-12T11:10:44+08:00 ] 127.0.0.1 POST food.cuizy.com/stop
+[运行时间：0.057000s] [吞吐率：17.54req/s] [内存消耗：2,157.43kb] [文件加载：38]
+[ info ] [ LANG ] F:\my-file\food\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'stop',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'pgv_pvi=7461056512; pgv_si=s3462497280',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://food.cuizy.com/',
+  'origin' => 'http://food.cuizy.com',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '90',
+  'connection' => 'keep-alive',
+  'host' => 'food.cuizy.com',
+)
+[ info ] [ PARAM ] array (
+  'type_arr' => 
+  array (
+    0 => '1',
+    1 => '2',
+    2 => '3',
+    3 => '4',
+    4 => '5',
+  ),
+  'num' => '3',
+)
+[ info ] [ RUN ] app\index\controller\Index->stop[ F:\my-file\food\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.013000s ] mysql:host=127.0.0.1;port=3306;dbname=chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `t_food` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `t_food` WHERE  `food_type` IN (1,2,3,4,5)  AND `is_show` = 1 LIMIT 1 [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `id`,`food_type`,`food_name` FROM `t_food` WHERE  `food_type` IN (1,2,3,4,5)  AND `is_show` = 1  AND `id` NOT IN ('') LIMIT 6,1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `id`,`food_type`,`food_name` FROM `t_food` WHERE  `food_type` IN (1,2,3,4,5)  AND `is_show` = 1  AND `id` NOT IN (7) LIMIT 8,1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `id`,`food_type`,`food_name` FROM `t_food` WHERE  `food_type` IN (1,2,3,4,5)  AND `is_show` = 1  AND `id` NOT IN (7,10) LIMIT 11,1 [ RunTime:0.002000s ]
