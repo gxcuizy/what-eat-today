@@ -195,7 +195,7 @@
                 success: function (res) {
                     if (res.code == 1) {
                         var name_href = '';
-                        if (val.food_url == '') {
+                        if (res.data.food_url == '') {
                             name_href = '<a href="https://m.meishichina.com/search/recipe/' + res.data.food_name + '/" target="_blank">' + res.data.food_name + '</a>';
                         } else {
                             name_href = '<a href="' + res.data.food_url + '" target="_blank">' + res.data.food_name + '</a>';
