@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>首页-吃什么呢</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap-theme.min.css">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
 </head>
-<body>
+<body style="margin: 0;padding: 0;">
 <div class="container-fluid">
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/">
-                    <b>吃什么呢</b>
-                </a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand glyphicon" href="/"><b>吃什么呢</b></a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
@@ -39,7 +43,7 @@
                 {/volist}
             </div>
             <div class="input-group">
-                <input type="text" name="num" class="form-control" placeholder="请输入菜谱数量，默认为3" value="">
+                <input type="number" name="num" class="form-control" placeholder="菜谱数(默认3)" value="" maxlength="2">
                 <span class="input-group-btn">
                     <button class="btn btn-info start-draw" type="button">&nbsp;&nbsp;开始抽签&nbsp;&nbsp;</button>
                     <button class="btn btn-info stop-draw disabled" type="button">&nbsp;&nbsp;停止&nbsp;&nbsp;</button>
@@ -51,10 +55,6 @@
                 <div class="panel-heading"><b>抽签结果</b></div>
                 <div class="panel-body">
                     <ul class="list-group result-list">
-                        <!--<li class="list-group-item">
-                            <button type="button" class="badge btn btn-warning btn-xs">换一个</button>
-                            <b>第1道菜</b>：<span class="food_name">葫芦娃舅爷爷</span>
-                        </li>-->
                     </ul>
                 </div>
             </div>
@@ -63,12 +63,14 @@
             <h4>推荐菜谱</h4>
             {volist name='rec_list' id='rec'}
             <div>
-                <div class="thumbnail">
-                    <img src="{$rec.food_img}" alt="">
-                    <div class="caption">
-                        <h3 class="text-center">{$rec.food_name}</h3>
+                <a href="{if condition='empty($rec.food_url)'}https://m.meishichina.com/search/recipe/{$rec.food_name}/{else/}{$rec.food_url}{/if}" target="_black">
+                    <div class="thumbnail">
+                        <img src="{$rec.food_img}" alt="">
+                        <div class="caption">
+                            <h3 class="text-center">{$rec.food_name}</h3>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
             {/volist}
         </div>
@@ -76,6 +78,7 @@
 </div>
 </body>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/layer/3.1.1/layer.min.js"></script>
 <script>
     // 全部菜谱数组
@@ -150,10 +153,16 @@
                     $('.reset-draw').removeClass('disabled');
                     clearTimeout(current_times);
                     var res_html = '';
+                    var name_href = '';
                     $.each(res.data, function (k, val) {
+                        if (val.food_url == '') {
+                            name_href = '<a href="https://m.meishichina.com/search/recipe/' + val.food_name + '/" target="_blank">' + val.food_name + '</a>';
+                        } else {
+                            name_href = '<a href="' + val.food_url + '" target="_blank">' + val.food_name + '</a>';
+                        }
                         res_html += '<li class="list-group-item">' +
-                                '<button type="button" class="badge btn btn-warning btn-xs reset-this" data-type="' + val.food_type + '">换一个</button>' +
-                                '<b>第' + (k + 1) + '道菜</b>：<span class="food_name">' + val.food_name + '</span>' +
+                                '<button type="button" class="badge btn btn-warning btn-xs reset-this" data-id="' + val.id + '">换一个</button>' +
+                                '<b>第' + (k + 1) + '道菜</b>：<span class="food_name">' + name_href + '</span>' +
                                 '</li>';
                     });
                     $('.result-list').html(res_html);
@@ -173,15 +182,25 @@
     // 换一个
     function changeThis() {
         $('.reset-this').off('click').on('click', function () {
+            var select_ids = [];
+            $(".reset-this").each(function (i) {
+                select_ids[i] = $(this).data('id');
+            });
             var obj = this;
             $.ajax({
                 url: "/change",
                 type: "POST",
                 dataType: "json",
-                data: {'type_arr': type_arr, 'num': 1},
+                data: {'type_arr': type_arr, 'num': 1, 'select_ids': select_ids},
                 success: function (res) {
                     if (res.code == 1) {
-                        $(obj).parent('li').find('.food_name').html(res.data.food_name);
+                        var name_href = '';
+                        if (val.food_url == '') {
+                            name_href = '<a href="https://m.meishichina.com/search/recipe/' + res.data.food_name + '/" target="_blank">' + res.data.food_name + '</a>';
+                        } else {
+                            name_href = '<a href="' + res.data.food_url + '" target="_blank">' + res.data.food_name + '</a>';
+                        }
+                        $(obj).parent('li').find('.food_name').html(name_href);
                         layer.msg(res.msg);
                     } else {
                         layer.msg(res.msg, {icon: 2});

@@ -12,9 +12,13 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/">
-                    <b>吃什么呢</b>
-                </a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand glyphicon" href="/"><b>吃什么呢</b></a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
@@ -27,28 +31,40 @@
     </nav>
     <div class="row">
         <div class="alert alert-info food_type">
-            <form class="form-inline">
-                <b>菜谱类型：</b>
-                {volist name='food_type' id='type'}
-                <label class="checkbox-inline">
-                    <input type="checkbox" name="type_arr[]" value="{$key}" {if condition="in_array($key, $search.type_arr)"}checked{/if}> {$type}
-                </label>
-                {/volist}
-                <div class="form-group" style="margin-left: 20px;">
-                    <label for="food_name">菜谱名称：</label>
-                    <input name="food_name" type="text" class="form-control" id="food_name" value="{$search.food_name}" placeholder="请输入菜谱名称">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="food_name" class="col-md-2 control-label">菜谱类型：</label>
+                    <div class="col-md-10">
+                        {volist name='food_type' id='type'}
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="type_arr[]" value="{$key}" {if condition="in_array($key, $search.type_arr)"}checked{/if}> {$type}
+                        </label>
+                        {/volist}
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-info">搜索</button>
+                <div class="form-group">
+                    <label for="food_name" class="col-md-2 control-label">菜谱名称：</label>
+                    <div class="col-md-10">
+                        <input name="food_name" type="text" class="form-control" id="food_name" value="{$search.food_name}" placeholder="请输入菜谱名称">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <button type="submit" class="btn btn-info">搜索</button>
+                    </div>
+                </div>
             </form>
         </div>
         {volist name="food_list" id="food"}
         <div class="col-md-3 col-sm-6 col-xs-6">
-            <div class="thumbnail">
-                <img src="{$food.food_img}" alt="">
-                <div class="caption">
-                    <h4 class="text-center">{$food.food_name}</h4>
+            <a href="{if condition='empty($food.food_url)'}https://m.meishichina.com/search/recipe/{$food.food_name}/{else/}{$food.food_url}{/if}" target="_black">
+                <div class="thumbnail">
+                    <img src="{$food.food_img}" alt="">
+                    <div class="caption">
+                        <h4 class="text-center">{$food.food_name}</h4>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
         {/volist}
     </div>
@@ -58,6 +74,7 @@
 </div>
 </body>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
 </script>
 </html>

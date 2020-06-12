@@ -158,7 +158,7 @@ class Index extends Controller
                 // 随机获取一条
                 $rand = mt_rand(1, $count);
                 $where['id'] = ['not in', $select_id];
-                $food = Db::name('food')->where($where)->field('id, food_type, food_name')->page($rand)->limit(1)->select();
+                $food = Db::name('food')->where($where)->field('id, food_type, food_name, food_url')->page($rand)->limit(1)->select();
                 $data[] = $food[0];
                 $select_id[] = $food[0]['id'];
                 $count -= 1;
@@ -180,8 +180,9 @@ class Index extends Controller
         if ($this->request->isAjax()) {
             $param = $this->request->param();
             $type_arr = $param['type_arr'];
+            $select_ids = $param['select_ids'];
             // 总条数
-            $where = ['food_type' => ['in', $type_arr], 'is_show' => 1];
+            $where = ['food_type' => ['in', $type_arr], 'is_show' => 1, 'id' => ['not in', $select_ids]];
             $count = Db::name('food')->where($where)->count();
             // 随机获取一条
             $rand = mt_rand(1, $count);
