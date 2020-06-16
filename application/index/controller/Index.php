@@ -194,4 +194,25 @@ class Index extends Controller
             exit(json_encode($this->return));
         }
     }
+
+    public function writeData() {
+        set_time_limit(0);
+        $limit = 1000000;
+        while($limit > 0){
+            $data = [
+                'username' => substr(md5(time() . mt_rand(10000, 99999)), 0, 6),
+                'password' => md5('123456'),
+                'create_time' => time()
+            ];
+            Db::name('user')->insert($data);
+            $data = [
+                'uid' => 0,
+                'title' => substr(md5(time() . mt_rand(10000, 99999)), 0, 8),
+                'content' => '9999999999999999999',
+                'create_time' => time()
+            ];
+            Db::name('thread')->insert($data);
+            $limit --;
+        }
+    }
 }
